@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>PolyTodo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="bower_components/polymer/polymer.html">
+
+  <!-- Layout -->
+  <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/iron-dropdown/iron-dropdown.html">
+  <link rel="import" href="bower_components/paper-menu-button/paper-menu-button.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+
+  <!-- my firebase login test -->
+  <link rel="import" href="bower_components/firebase-login/firebase-login.html">
+
+  <link rel="stylesheet" href="styles.css">
+  <!-- Crucial for css-mixins, 'custom-style' must be in here...
+       see: https://www.polymer-project.org/1.0/docs/devguide/styling.html#custom-style
+       even though the mixin still does not work :(, therfore cursor in styles.css
+  -->
+  <style is="custom-style">
+    :root {
+      --accent-color: #3f51b5;
+    }
+  }
+
+  </style>
+</head>
+
+<body class="fullbleed vertical layout">
+  <template is="dom-bind" id="app">
+
+    <!-- header panel -->
+    <paper-header-panel class="flex">
+      <paper-toolbar>
+        <span class="title">
+          PolyTodo
+        </span>
+
+        <firebase-login
+        id="newLogin"
+        redirect
+        facebook
+        google
+        github
+        twitter
+        mail-pass
+        firebase-url='https://polytodo.firebaseio.com/'>
+        </firebase-login>
+      </paper-toolbar>
+    </paper-header-panel>
+
+    <!-- main -->
+    <div class="main">
+      <form on-submit="addItem">
+        <paper-input value="{{newItemValue}}"
+          placeholder="Enter your item here...">
+        </paper-input>
+        <paper-button on-click="addItem">Add</paper-button>
+      </form>
+      <template is="dom-repeat" items="{{items}}">
+        <div>
+          <paper-icon-button icon="delete"
+            on-click="deleteItem">
+          </paper-icon-button>
+          <paper-checkbox on-change="toggleItem"
+            checked="{{item.done}}">[[item.text]]</paper-checkbox>
+        </div>
+      </template>
+    </div>
+  </template>
+
+  <script src="main.js"></script>
+</body>
+</html>

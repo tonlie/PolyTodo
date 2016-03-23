@@ -1,0 +1,48 @@
+body {
+  font-family: Roboto, sans-serif;
+  color: #333;
+  //max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main{
+  margin: auto;
+  max-width: 700px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+paper-button {
+  flex-shrink: 1;
+}
+paper-input {
+  flex-grow: 1;
+}
+
+paper-checkbox {
+  display: inline-block;
+  margin: 5px 0;
+  transition: opacity 0.3s;
+}
+
+paper-checkbox[checked] {
+  opacity: 0.5;
+}
+
+paper-header-panel paper-menu {
+  // position currently controlled inline
+}
+
+paper-header-panel paper-item {
+  font-family: Roboto, sans-serif;
+  font-size: 10pt;
+  color: #333;
+  margin: 5px;
+  cursor: pointer;
+}

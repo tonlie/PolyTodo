@@ -1,0 +1,22 @@
+{
+  "name": "PolyTodo",
+  "description": "",
+  "homepage": "",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "todo app",
+    "firebase"
+  ],
+  "version": "0.5",
+  "authors": [
+    "tonlie <toni.liebscher@gmail.com>"
+  ],
+  "private": true,
+  "dependencies": {
+    "iron-elements": "PolymerElements/iron-elements#^1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.1",
+    "firebase-element": "GoogleWebComponents/firebase-element#~1.0.9",
+    "gold-email-input": "PolymerElements/gold-email-input#~1.0.7"
+  }
+}
